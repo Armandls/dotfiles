@@ -7,9 +7,7 @@ Tema: **Nord** (oscuro), unificado en GTK y Qt.
 
 ## Capturas
 
-<!-- Añade aquí tus capturas: escritorio, waybar, rofi, terminal -->
-<!-- ![desktop](screenshots/desktop.png) -->
-
+![desktop](screenshots/desktop.png)
 ## Stack
 
 | Componente | Programa |
