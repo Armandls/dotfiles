@@ -30,7 +30,7 @@ Tema: **Nord** (oscuro), unificado en GTK y Qt.
 | Capturas | grim + slurp + wl-clipboard |
 | Portapapeles | wl-clipboard |
 | Fuente | JetBrainsMono Nerd Font |
-| Tema GTK/Qt | Nordic + qt6ct/Kvantum |
+| Tema GTK/Qt | Nordic (GTK) + qt6ct/Fusion con paleta Nord |
 
 ## Particularidades de este setup
 
@@ -58,7 +58,6 @@ Tema: **Nord** (oscuro), unificado en GTK y Qt.
 ├── gtk-3.0/       → ~/.config/gtk-3.0
 ├── gtk-4.0/       → ~/.config/gtk-4.0
 ├── qt6ct/         → ~/.config/qt6ct
-├── Kvantum/       → ~/.config/Kvantum
 ├── environment.d/ → ~/.config/environment.d
 └── bash/          → ~/.bashrc, ~/.bash_profile
 ```
@@ -67,21 +66,21 @@ Tema: **Nord** (oscuro), unificado en GTK y Qt.
 
 ```bash
 # 1. Clonar en el HOME
-git clone https://github.com/<usuario>/dotfiles.git ~/.dotfiles
+git clone https://github.com/Armandls/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # 2. Instalar dependencias (repos oficiales)
 sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
   hyprlock kitty dolphin sddm pipewire wireplumber networkmanager bluez \
   blueman polkit hyprpolkitagent grim slurp wl-clipboard brightnessctl \
-  power-profiles-daemon nvidia-open mesa qt6ct kvantum stow \
+  power-profiles-daemon nvidia-open mesa qt6ct stow \
   ttf-jetbrains-mono-nerd tela-circle-icon-theme-nord
 
 # 3. Dependencias AUR
 yay -S --needed nordic-theme asusctl supergfxctl
 
 # 4. Desplegar con Stow
-stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty Kvantum qt6ct rofi waybar
+stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar
 ```
 
 ## Licencia
