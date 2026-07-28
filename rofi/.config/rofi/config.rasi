@@ -1,0 +1,173 @@
+configuration {
+    location: 0;
+    yoffset: 0;
+    xoffset: 0;
+    show-icons: true;
+    icon-theme: "Adwaita";
+    case-sensitive: false;
+    cycle: true;
+    scroll-method: 0;
+    display-drun: "Apps:";
+    combi-display-format: "{mode}{text}";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+* {
+    bg:          #08111f;
+    bg-soft:     #101a2b;
+    surface:     #162238;
+    surface-2:   #1f2d46;
+    fg:          #edf6ff;
+    muted:       #9baec4;
+    accent:      #7dd3fc;
+    accent-2:    #c084fc;
+    warm:        #f6c177;
+    urgent:      #ff6b7a;
+
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+window {
+    width: 38%;
+    padding: 16px;
+    background-color: rgba(8, 17, 31, 0.88);
+    background-image: linear-gradient(to bottom, #162238, #08111f);
+    border: 2px;
+    border-color: rgba(125, 211, 252, 0.55);
+    border-radius: 18px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 12px;
+    children: [ inputbar, listview, message ];
+}
+
+inputbar {
+    background-color: rgba(22, 34, 56, 0.88);
+    background-image: linear-gradient(to right, #1f2d46, #162238);
+    text-color: @fg;
+    border: 1px;
+    border-color: rgba(125, 211, 252, 0.22);
+    border-radius: 14px;
+    padding: 12px 14px;
+    spacing: 10px;
+    children: [ prompt, entry, case-indicator ];
+}
+
+prompt {
+    text-color: @accent;
+    margin: 0px 2px 0px 0px;
+}
+
+entry {
+    text-color: @fg;
+    placeholder-color: rgba(155, 174, 196, 0.70);
+    cursor: text;
+}
+
+case-indicator {
+    text-color: @warm;
+}
+
+listview {
+    background-color: transparent;
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    spacing: 6px;
+    padding: 2px;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    border: 1px;
+    border-color: transparent;
+    border-radius: 12px;
+    padding: 9px 10px;
+    spacing: 10px;
+    orientation: horizontal;
+    children: [ element-icon, element-text ];
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate.normal {
+    background-color: rgba(22, 34, 56, 0.24);
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: rgba(125, 211, 252, 0.18);
+    background-image: linear-gradient(to right, rgba(125, 211, 252, 0.22), rgba(192, 132, 252, 0.14));
+    border-color: rgba(125, 211, 252, 0.45);
+    text-color: #ffffff;
+}
+
+element normal.urgent {
+    background-color: rgba(255, 107, 122, 0.12);
+    text-color: @urgent;
+}
+
+element alternate.urgent {
+    background-color: rgba(255, 107, 122, 0.12);
+    text-color: @urgent;
+}
+
+element selected.urgent {
+    background-color: rgba(255, 107, 122, 0.24);
+    border-color: rgba(255, 107, 122, 0.60);
+    text-color: #ffffff;
+}
+
+element normal.active {
+    text-color: @warm;
+}
+
+element alternate.active {
+    text-color: @warm;
+}
+
+element selected.active {
+    background-color: rgba(246, 193, 119, 0.18);
+    border-color: rgba(246, 193, 119, 0.50);
+    text-color: #ffffff;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 1.25em;
+    vertical-align: 0.5;
+}
+
+message {
+    background-color: rgba(22, 34, 56, 0.55);
+    border: 1px;
+    border-color: rgba(125, 211, 252, 0.18);
+    border-radius: 12px;
+    padding: 8px 10px;
+}
+
+textbox {
+    text-color: @muted;
+}

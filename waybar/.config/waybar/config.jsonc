@@ -1,0 +1,30 @@
+{
+  "layer": "top",
+  "height": 42,
+  "spacing": 2,
+  "include": [
+    "./modules/groups.jsonc",
+    "./modules/system.jsonc",
+    "./modules/workspace.jsonc",
+    "./modules/network.jsonc",
+    "./modules/audio.jsonc",
+    "./modules/bluetooth.jsonc",
+    "./modules/battery.jsonc",
+    "./modules/clock.jsonc",
+    "./modules/power.jsonc"
+  ],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/network"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "group/audio",
+    "custom/bluetooth",
+    "group/system", 
+    "battery",
+    "custom/power"
+  ]
+}

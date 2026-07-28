@@ -1,0 +1,67 @@
+@import "colors.css";
+
+#audio,
+#custom-bluetooth,
+#custom-network,
+#custom-power,
+#system {
+  margin: 5px 4px;
+  padding: 6px 7px;
+  background-color: alpha(@surface_container, 0.88);
+  border: 1px solid alpha(@outline_variant, 0.55);
+  border-radius: 18px;
+  color: @on_surface_variant;
+  transition: all 0.25s ease;
+}
+
+#memory,
+#cpu,
+#temperature {
+  margin-right: 2px;
+  padding: 0 9px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: @on_surface_variant;
+}
+
+#custom-bluetooth {
+  padding: 6px 14px;
+  color: @on_surface_variant;
+}
+
+#custom-network {
+  padding: 6px 14px;
+  color: @on_surface_variant;
+}
+
+#custom-power {
+  margin-right: 8px;
+  padding: 6px 14px;
+  color: @on_surface_variant;
+  font-size: 16px;
+}
+
+#pulseaudio {
+  margin-left: 6px;
+  padding: 0 8px;
+  color: @primary;
+}
+
+#pulseaudio.microphone {
+  padding: 0 8px;
+  color: @tertiary_fixed_dim;
+}
+
+#audio:hover,
+#custom-bluetooth:hover,
+#custom-network:hover,
+#system:hover {
+  background-color: alpha(@surface_container_high, 0.94);
+  border-color: alpha(@outline, 0.45);
+}
+
+#custom-power:hover {
+  background-color: alpha(@error_container, 0.55);
+  border-color: alpha(@error, 0.55);
+  color: @error;
+}

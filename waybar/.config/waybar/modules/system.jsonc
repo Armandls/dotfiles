@@ -1,0 +1,36 @@
+{
+  "cpu": {
+    "tooltip": false,
+    "interval": 10,
+    "format": "󰻠 <span size='11pt'>{usage}%</span>",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "tooltip": false,
+    "interval": 10,
+    "format": " <span size='11pt'>{percentage}%</span>",
+    "states": {
+      "warning": 75,
+      "critical": 85
+    }
+  },
+  "temperature": {
+    "tooltip": false,
+    "interval": 10,
+    "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+    "input-filename": "temp1_input",
+    "warning-threshold": 70,
+    "critical-threshold": 80,
+    "format": "{icon} <span size='11pt'>{temperatureC}°C</span>",
+    "format-warning": "{icon} <span size='11pt'>{temperatureC}°C</span>",
+    "format-critical": "<span size='12pt'>󱗗 </span><span size='11pt'>{temperatureC}°C</span>",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+@import "tokens/colors.css";
+@import "tokens/workspace.css";
+@import "tokens/widget.css";
+@import "tokens/batt-clock.css";
+@import "tokens/state.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  min-height: 0px;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 15px;
+  font-weight: 700;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on_surface;
+}
+
+tooltip {
+  padding: 10px 12px;
+  background-color: @surface_container_high;
+  border: 1px solid @outline_variant;
+  border-radius: 12px;
+  color: @on_surface;
+}
+
+tooltip label {
+  color: @on_surface;
+}

@@ -1,0 +1,11 @@
+{
+  "custom/bluetooth": {
+    "exec": "~/.config/waybar/scripts/bluetooth-status.sh",
+    "return-type": "json",
+    "interval": 5,
+    "hide-empty-text": true,
+    "on-click": "blueman-manager",
+    "on-click-right": "rfkill toggle bluetooth",
+    "max-length": 24
+  }
+}

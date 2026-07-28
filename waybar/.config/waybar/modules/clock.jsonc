@@ -1,0 +1,17 @@
+{
+  "clock": {
+    "timezone": "Europe/Madrid",
+    "format": "󰃭 <span size='11pt'>{:%a, %b %d %H:%M}</span>",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "today": "<span background='#89b4fa' color='#11111b'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up"
+    }
+  }
+}

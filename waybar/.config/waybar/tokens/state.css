@@ -1,0 +1,42 @@
+@define-color success #a6e3a1;
+@define-color warning #fab387;
+@define-color danger #ff6b6b;
+
+#battery.charging {
+  color: @success;
+  border-color: alpha(@success, 0.45);
+}
+
+#cpu.warning,
+#memory.warning,
+#temperature.warning,
+#battery.warning:not(.charging) {
+  color: @warning;
+}
+
+#battery.warning:not(.charging),
+#memory.warning,
+#cpu.warning,
+#temperature.warning {
+  border-color: alpha(@warning, 0.45);
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical:not(.charging) {
+  color: @danger;
+}
+
+#battery.critical:not(.charging),
+#memory.critical,
+#cpu.critical,
+#temperature.critical {
+  border-color: alpha(@danger, 0.55);
+}
+
+
+#custom-bluetooth.connected,
+#custom-bluetooth.connected label {
+  color: @primary;
+}

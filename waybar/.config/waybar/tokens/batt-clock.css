@@ -1,0 +1,27 @@
+@import "colors.css";
+
+#battery {
+  margin: 5px 4px;
+  padding: 6px 16px;
+  background-color: alpha(@surface_container, 0.88);
+  border: 1px solid alpha(@outline_variant, 0.55);
+  border-radius: 18px;
+  color: @on_surface_variant;
+  transition: all 0.25s ease;
+}
+
+#clock {
+  margin: 5px 6px;
+  padding: 6px 16px;
+  background-color: alpha(@surface_container, 0.9);
+  border: 1px solid alpha(@outline_variant, 0.55);
+  border-radius: 18px;
+  color: @on_surface_variant;
+  transition: all 0.25s ease;
+}
+
+#battery:hover,
+#clock:hover {
+  background-color: alpha(@surface_container_high, 0.94);
+  border-color: alpha(@outline, 0.45);
+}

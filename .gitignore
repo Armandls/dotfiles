@@ -1,0 +1,34 @@
+# === Secretos / credenciales (NUNCA subir) ===
+*.key
+*.pem
+*.gpg
+*.token
+*secret*
+*password*
+.ssh/
+.gnupg/
+
+# === Caches / estado / logs ===
+*.log
+*.cache
+*.tmp
+*~
+.DS_Store
+
+# === Backups locales ===
+*.bak
+*.backup
+*-backup-*/
+
+# === Datos de apps que NO son dotfiles ===
+# (por si alguien añade estas carpetas por error)
+1Password/
+mozilla/
+spotify/
+zoom/
+VSCodium/
+libreoffice/
+dconf/
+pulse/
+session/
+opencode/

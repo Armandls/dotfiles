@@ -1,0 +1,17 @@
+{
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory",
+      "temperature"
+    ]
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#microphone"
+    ]
+  }
+}
