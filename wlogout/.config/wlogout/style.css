@@ -1,0 +1,37 @@
+* {
+    background-image: none;
+    box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+}
+
+window {
+    background-color: rgba(46, 52, 64, 0.85); /* Nord Polar Night con transparencia */
+}
+
+button {
+    color: #d8dee9;                 /* Snow Storm */
+    background-color: #3b4252;      /* Polar Night 1 */
+    border-radius: 14px;
+    border: 2px solid #434c5e;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    transition: all 0.2s ease-in-out;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: #4c566a;      /* Polar Night 3 */
+    border: 2px solid #88c0d0;      /* Frost */
+    color: #eceff4;
+    outline-style: none;
+}
+
+#lock     { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
+#logout   { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
+#suspend  { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
+#reboot   { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
+#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }

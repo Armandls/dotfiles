@@ -28,6 +28,8 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 | Authorization | polkit + hyprpolkitagent |
 | Screenshots | grim + slurp + wl-clipboard |
 | Clipboard | wl-clipboard |
+| Power menu | wlogout (Nord styled) |
+| Cursor | Bibata-Modern-Ice |
 | Font | JetBrainsMono Nerd Font |
 | GTK/Qt theme | Nordic (GTK) + qt6ct/Fusion with Nord palette |
 
@@ -57,6 +59,7 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 ├── gtk-3.0/       → ~/.config/gtk-3.0
 ├── gtk-4.0/       → ~/.config/gtk-4.0
 ├── qt6ct/         → ~/.config/qt6ct
+├── wlogout/       → ~/.config/wlogout
 ├── environment.d/ → ~/.config/environment.d
 └── bash/          → ~/.bashrc, ~/.bash_profile
 ```
@@ -73,13 +76,13 @@ sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
   hyprlock kitty dolphin sddm pipewire wireplumber networkmanager bluez \
   blueman polkit hyprpolkitagent grim slurp wl-clipboard brightnessctl \
   power-profiles-daemon nvidia-open mesa qt6ct stow \
-  ttf-jetbrains-mono-nerd tela-circle-icon-theme-nord
+  ttf-jetbrains-mono-nerd tela-circle-icon-theme-nord wlogout
 
 # 3. AUR dependencies
-yay -S --needed nordic-theme asusctl supergfxctl
+yay -S --needed nordic-theme asusctl supergfxctl bibata-cursor-theme
 
 # 4. Deploy with Stow
-stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar
+stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar wlogout
 ```
 
 ## License
