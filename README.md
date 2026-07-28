@@ -1,50 +1,51 @@
 # dotfiles
 
-Configuración personal de mi entorno **Arch Linux + Hyprland** (Wayland) en un
-portátil ASUS con gráficos híbridos. Gestionado con [GNU Stow](https://www.gnu.org/software/stow/).
+Personal configuration of my **Arch Linux + Hyprland** (Wayland) setup on an
+ASUS laptop with hybrid graphics. Managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-Tema: **Nord** (oscuro), unificado en GTK y Qt.
+Theme: **Nord** (dark), unified across GTK and Qt.
 
-## Capturas
+## Screenshots
 
 ![desktop](screenshots/desktop.png)
+
 ## Stack
 
-| Componente | Programa |
-|------------|----------|
+| Component | Program |
+|-----------|---------|
 | Compositor | Hyprland `0.56.0` (Wayland) |
 | Session manager | uwsm `0.26.6` |
-| Display manager | SDDM `0.21` (tema sugar-candy) |
-| Barra | Waybar `0.15` |
-| Lanzador | Rofi `2.0` |
-| Notificaciones | Dunst `1.13` |
-| Fondo / idle / lock | hyprpaper · hypridle · hyprlock |
+| Display manager | SDDM `0.21` (sugar-candy theme) |
+| Bar | Waybar `0.15` |
+| Launcher | Rofi `2.0` |
+| Notifications | Dunst `1.13` |
+| Wallpaper / idle / lock | hyprpaper · hypridle · hyprlock |
 | Terminal | Kitty `0.48` |
-| Gestor de archivos | Dolphin |
+| File manager | Dolphin |
 | Audio | PipeWire `1.6` + WirePlumber |
-| Red | NetworkManager |
+| Network | NetworkManager |
 | Bluetooth | BlueZ + Blueman |
-| Permisos | polkit + hyprpolkitagent |
-| Capturas | grim + slurp + wl-clipboard |
-| Portapapeles | wl-clipboard |
-| Fuente | JetBrainsMono Nerd Font |
-| Tema GTK/Qt | Nordic (GTK) + qt6ct/Fusion con paleta Nord |
+| Authorization | polkit + hyprpolkitagent |
+| Screenshots | grim + slurp + wl-clipboard |
+| Clipboard | wl-clipboard |
+| Font | JetBrainsMono Nerd Font |
+| GTK/Qt theme | Nordic (GTK) + qt6ct/Fusion with Nord palette |
 
-## Particularidades de este setup
+## Setup highlights
 
-- **Arranque con UKI (Unified Kernel Image)** cargado por GRUB, con **TPM2**
-  y arranque medido. Kernel + initramfs + microcode empaquetados en un solo
-  `.efi` firmable.
-- **Sesión lanzada con uwsm** (Hyprland gestionado como servicios de systemd
-  de usuario), no con el arranque directo clásico.
-- **Portátil ASUS con gráficos híbridos**: AMD Radeon 680M (iGPU) +
-  NVIDIA RTX 3050 Mobile (dGPU), con `nvidia-open` + `mesa` y pila EGL/Wayland.
-  Gestión ASUS con `asusctl` / `supergfxctl`.
-- **Límite de carga de batería al 60%** para alargar su vida útil.
-- **Config de Hyprland en Lua** (no el formato `.conf` tradicional).
-- Variables de entorno Wayland gestionadas vía `~/.config/environment.d/`.
+- **Boot via UKI (Unified Kernel Image)** loaded by GRUB, with **TPM2** and
+  measured boot. Kernel + initramfs + microcode packed into a single signable
+  `.efi`.
+- **Session launched with uwsm** (Hyprland managed as systemd user services),
+  not the classic direct launch.
+- **ASUS laptop with hybrid graphics**: AMD Radeon 680M (iGPU) +
+  NVIDIA RTX 3050 Mobile (dGPU), with `nvidia-open` + `mesa` and the EGL/Wayland
+  stack. ASUS control via `asusctl` / `supergfxctl`.
+- **Battery charge limited to 60%** to extend its lifespan.
+- **Hyprland configured in Lua** (not the traditional `.conf` format).
+- Wayland environment variables managed through `~/.config/environment.d/`.
 
-## Estructura (paquetes Stow)
+## Structure (Stow packages)
 
 ```
 .dotfiles/
@@ -60,27 +61,27 @@ Tema: **Nord** (oscuro), unificado en GTK y Qt.
 └── bash/          → ~/.bashrc, ~/.bash_profile
 ```
 
-## Instalación
+## Installation
 
 ```bash
-# 1. Clonar en el HOME
+# 1. Clone into HOME
 git clone https://github.com/Armandls/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
-# 2. Instalar dependencias (repos oficiales)
+# 2. Install dependencies (official repos)
 sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
   hyprlock kitty dolphin sddm pipewire wireplumber networkmanager bluez \
   blueman polkit hyprpolkitagent grim slurp wl-clipboard brightnessctl \
   power-profiles-daemon nvidia-open mesa qt6ct stow \
   ttf-jetbrains-mono-nerd tela-circle-icon-theme-nord
 
-# 3. Dependencias AUR
+# 3. AUR dependencies
 yay -S --needed nordic-theme asusctl supergfxctl
 
-# 4. Desplegar con Stow
+# 4. Deploy with Stow
 stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar
 ```
 
-## Licencia
+## License
 
 [MIT](LICENSE)
