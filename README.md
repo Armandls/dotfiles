@@ -79,7 +79,7 @@ sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
   ttf-jetbrains-mono-nerd tela-circle-icon-theme-nord wlogout
 
 # 3. AUR dependencies
-yay -S --needed nordic-theme asusctl supergfxctl bibata-cursor-theme
+yay -S --needed nordic-theme asusctl supergfxctl bibata-cursor-theme eza
 
 # 4. Deploy with Stow
 stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar wlogout
