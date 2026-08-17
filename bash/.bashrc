@@ -13,4 +13,4 @@ alias lt='eza --tree --level=2 --icons=auto'
 alias grep='grep --color=auto'
 
 #Actual prompt 
-PS1='\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
+PS1='\n\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\$ '
