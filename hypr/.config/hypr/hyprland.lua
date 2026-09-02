@@ -79,24 +79,23 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("pidof hypridle || hypridle")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("hyprpaper")
-  -- Waybar se lanza desde aqui (no como servicio systemd) porque asi Hyprland ya
-  -- existe cuando arranca. El pequeno retardo evita el bug conocido de waybar
-  -- (issue #3742): si el IPC de Hyprland no responde al instante, waybar
-  -- DESACTIVA el modulo hyprland/workspaces de forma permanente.
-  hl.exec_cmd("sleep 1 && waybar")
 
   displays.apply()
+
+  -- Waybar se lanza mediante un script con lock que garantiza una sola
+  -- instancia (hyprland.start y monitor.added pueden dispararse a la vez)
+  -- y que espera al IPC de Hyprland (bug upstream waybar #3742).
+  hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/waybar-restart.sh")
 end)
 
 hl.on("monitor.added", function()
   displays.apply()
-  -- Relanzar waybar para que recalcule outputs tras el hotplug
-  hl.exec_cmd("killall waybar; sleep 1 && waybar")
+  hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/waybar-restart.sh")
 end)
 
 hl.on("monitor.removed", function()
   displays.apply()
-  hl.exec_cmd("killall waybar; sleep 1 && waybar")
+  hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/waybar-restart.sh")
 end)
 
 hl.on("config.reloaded", function()
