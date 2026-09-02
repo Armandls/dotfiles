@@ -78,7 +78,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 6,    bezier = "almo
 hl.on("hyprland.start", function()
   hl.exec_cmd("pidof hypridle || hypridle")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
-  hl.exec_cmd("waybar")
   hl.exec_cmd("hyprpaper")
 
   displays.apply()
@@ -86,10 +85,13 @@ end)
 
 hl.on("monitor.added", function()
   displays.apply()
+  -- Recargar waybar para que recalcule outputs/modulos tras el hotplug
+  hl.exec_cmd("systemctl --user reload-or-restart waybar.service")
 end)
 
 hl.on("monitor.removed", function()
   displays.apply()
+  hl.exec_cmd("systemctl --user reload-or-restart waybar.service")
 end)
 
 hl.on("config.reloaded", function()
