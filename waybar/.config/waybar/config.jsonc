@@ -7,6 +7,7 @@
     "./modules/system.jsonc",
     "./modules/workspace.jsonc",
     "./modules/network.jsonc",
+    "./modules/vpn.jsonc",
     "./modules/audio.jsonc",
     "./modules/bluetooth.jsonc",
     "./modules/battery.jsonc",
@@ -15,7 +16,8 @@
   ],
   "modules-left": [
     "hyprland/workspaces",
-    "custom/network"
+    "custom/network",
+    "custom/vpn"
   ],
   "modules-center": [
     "clock"
