@@ -1,13 +1,12 @@
 {
   "layer": "top",
-  "height": 42,
+  "height": 47,
   "spacing": 2,
   "include": [
     "./modules/groups.jsonc",
     "./modules/system.jsonc",
     "./modules/workspace.jsonc",
     "./modules/network.jsonc",
-    "./modules/vpn.jsonc",
     "./modules/audio.jsonc",
     "./modules/bluetooth.jsonc",
     "./modules/battery.jsonc",
@@ -16,8 +15,7 @@
   ],
   "modules-left": [
     "hyprland/workspaces",
-    "custom/network",
-    "custom/vpn"
+    "custom/network"
   ],
   "modules-center": [
     "clock"

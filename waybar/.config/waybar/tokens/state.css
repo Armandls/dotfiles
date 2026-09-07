@@ -40,23 +40,3 @@
 #custom-bluetooth.connected label {
   color: @primary;
 }
-
-/* VPN: full tunnel (todo por la VPS) */
-#custom-vpn.full,
-#custom-vpn.full label {
-  color: @success;
-  border-color: alpha(@success, 0.45);
-}
-
-/* VPN: split tunnel (solo LAN de casa) */
-#custom-vpn.split,
-#custom-vpn.split label {
-  color: @primary;
-  border-color: alpha(@primary, 0.45);
-}
-
-/* VPN: desconectada */
-#custom-vpn.disconnected,
-#custom-vpn.disconnected label {
-  color: @on_surface_variant;
-}

@@ -13,8 +13,31 @@
 
 local M = {}
 
--- Estado de la tapa del portatil. Lo actualizan los binds del Lid Switch.
-M.lid_closed = false
+-- Lee el estado real de la tapa desde ACPI (legible sin root).
+-- Devuelve true si esta cerrada, false si esta abierta o no se puede leer.
+local function lid_is_closed()
+  local paths = {
+    "/proc/acpi/button/lid/LID0/state",
+    "/proc/acpi/button/lid/LID/state",
+  }
+  for _, path in ipairs(paths) do
+    local f = io.open(path, "r")
+    if f then
+      local content = f:read("*a") or ""
+      f:close()
+      if content:match("closed") then
+        return true
+      end
+      return false
+    end
+  end
+  return false
+end
+
+-- Estado de la tapa del portatil. Se inicializa con el estado REAL (para que
+-- arrancar con la tapa ya cerrada aplique el perfil correcto) y luego lo
+-- mantienen actualizado los binds del Lid Switch.
+M.lid_closed = lid_is_closed()
 
 -- Devuelve el nombre del monitor interno (eDP*) o nil si no esta presente.
 local function find_laptop()
@@ -34,6 +57,12 @@ local function find_external()
     end
   end
   return nil
+end
+
+-- Vuelve a leer el estado real de la tapa (util al arrancar, cuando los binds
+-- del Lid Switch aun no han disparado ningun evento).
+function M.refresh_lid()
+  M.lid_closed = lid_is_closed()
 end
 
 -- Aplica el perfil de pantalla segun los monitores presentes y el estado de la tapa.

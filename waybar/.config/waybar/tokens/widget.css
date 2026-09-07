@@ -3,7 +3,6 @@
 #audio,
 #custom-bluetooth,
 #custom-network,
-#custom-vpn,
 #custom-power,
 #system {
   margin: 5px 4px;
@@ -35,11 +34,6 @@
   color: @on_surface_variant;
 }
 
-#custom-vpn {
-  padding: 6px 14px;
-  color: @on_surface_variant;
-}
-
 #custom-power {
   margin-right: 8px;
   padding: 6px 14px;
@@ -61,7 +55,6 @@
 #audio:hover,
 #custom-bluetooth:hover,
 #custom-network:hover,
-#custom-vpn:hover,
 #system:hover {
   background-color: alpha(@surface_container_high, 0.94);
   border-color: alpha(@outline, 0.45);

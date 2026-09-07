@@ -80,6 +80,9 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("hyprpaper")
 
+  -- Leer el estado real de la tapa antes de aplicar el perfil, para soportar
+  -- arrancar con la tapa ya cerrada y monitor externo conectado (modo dock).
+  displays.refresh_lid()
   displays.apply()
 
   -- Waybar se lanza mediante un script con lock que garantiza una sola
