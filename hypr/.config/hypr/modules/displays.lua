@@ -65,6 +65,30 @@ function M.refresh_lid()
   M.lid_closed = lid_is_closed()
 end
 
+-- Numero de workspaces gestionados (coincide con los binds SUPER+1..5 y con
+-- persistent-workspaces de waybar).
+local WORKSPACE_COUNT = 5
+
+-- Ancla los workspaces al monitor indicado y los hace persistentes.
+--
+-- Motivo: Hyprland reparte los workspaces por ORDEN DE DETECCION de monitores.
+-- La pantalla interna (GPU AMD, boot_vga) se inicializa antes que el externo
+-- (GPU NVIDIA), asi que el externo recibia el workspace 2 en vez del 1.
+-- Anclandolos explicitamente al monitor activo se evita ese reparto arbitrario.
+local function assign_workspaces(monitor)
+  if not monitor then
+    return
+  end
+  for i = 1, WORKSPACE_COUNT do
+    hl.workspace_rule({
+      workspace  = tostring(i),
+      monitor    = monitor,
+      persistent = true,
+      default    = (i == 1),
+    })
+  end
+end
+
 -- Aplica el perfil de pantalla segun los monitores presentes y el estado de la tapa.
 function M.apply()
   local laptop   = find_laptop()
@@ -103,6 +127,16 @@ function M.apply()
       scale    = 1,
     })
   end
+
+  -- Anclar los workspaces al monitor que se esta usando realmente.
+  local target = external or laptop
+  assign_workspaces(target)
+end
+
+-- Enfoca el workspace 1. Se llama al arrancar (no dentro de apply()) porque
+-- durante la reconfiguracion de monitores el cambio de workspace se ignora.
+function M.focus_first_workspace()
+  hl.dispatch(hl.dsp.focus({ workspace = 1 }))
 end
 
 return M

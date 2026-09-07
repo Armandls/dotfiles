@@ -84,6 +84,9 @@ hl.on("hyprland.start", function()
   -- arrancar con la tapa ya cerrada y monitor externo conectado (modo dock).
   displays.refresh_lid()
   displays.apply()
+  -- Empezar siempre en el workspace 1 (Hyprland reparte los workspaces por
+  -- orden de deteccion y el monitor externo recibia el 2).
+  displays.focus_first_workspace()
 
   -- Waybar se lanza mediante un script con lock que garantiza una sola
   -- instancia (hyprland.start y monitor.added pueden dispararse a la vez)
