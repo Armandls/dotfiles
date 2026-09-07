@@ -13,6 +13,12 @@ hl.config({
   misc = {
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
+    -- Evita que las apps queden ancladas al workspace donde se lanzaron.
+    -- Sin esto, las apps que arrancan durante el inicio (firefox restaurando
+    -- sesion) creaban workspaces fantasma fuera de los 5 gestionados, porque
+    -- el monitor externo (NVIDIA) se inicializa despues que la pantalla
+    -- interna (AMD, boot_vga) y el reparto de workspaces se desplazaba.
+    initial_workspace_tracking = 0,
   },
 
   general =  {
