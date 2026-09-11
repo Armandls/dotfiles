@@ -43,7 +43,9 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 - **ASUS laptop with hybrid graphics**: AMD Radeon 680M (iGPU) +
   NVIDIA RTX 3050 Mobile (dGPU), with `nvidia-open` + `mesa` and the EGL/Wayland
   stack. ASUS control via `asusctl` / `supergfxctl`.
-- **Battery charge limited to 60%** to extend its lifespan.
+- **Battery charge limited to 60%** to extend its lifespan, managed by `asusd`
+  (`asusctl battery limit <20-100>`), which persists it across reboots and
+  suspend.
 - **Hyprland configured in Lua** (not the traditional `.conf` format).
 - Wayland environment variables managed through `~/.config/environment.d/`.
 
@@ -61,6 +63,8 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 ├── qt6ct/         → ~/.config/qt6ct
 ├── wlogout/       → ~/.config/wlogout
 ├── environment.d/ → ~/.config/environment.d
+├── eza/           → ~/.config/eza
+├── scripts/       → ~/.local/bin
 └── bash/          → ~/.bashrc, ~/.bash_profile
 ```
 
@@ -82,7 +86,7 @@ sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
 yay -S --needed nordic-theme asusctl supergfxctl bibata-cursor-theme eza
 
 # 4. Deploy with Stow
-stow bash dunst environment.d gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi waybar wlogout
+stow bash dunst environment.d eza gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi scripts waybar wlogout
 ```
 
 ## License
