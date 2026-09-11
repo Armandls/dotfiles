@@ -6,10 +6,11 @@
 [[ $- != *i* ]] && return
 
 # alias
-alias ls='eza --icons=auto --group-directories-first'
-alias ll='eza -l --icons=auto --group-directories-first --git --header'
-alias la='eza -la --icons=auto --group-directories-first --git --header'
-alias lt='eza --tree --level=2 --icons=auto'
+alias ls='eza --icons=auto --group-directories-first -F'
+alias ll='eza -l --icons=auto --group-directories-first --git --header -F'
+alias la='eza -la --icons=auto --group-directories-first --git --header -F'
+alias lt='eza --tree --level=2 --icons=auto -F'
+alias usage='du -had 1'
 alias grep='grep --color=auto'
 
 #Actual prompt 
