@@ -37,6 +37,17 @@ hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.focus({ direction = "down" }))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
 
+-- Volumen. En este portatil las teclas M1 y M2 (encima de F1/F2) emiten
+-- XF86AudioLowerVolume / XF86AudioRaiseVolume via el driver asus-nb-wmi,
+-- asi que funcionan sin necesidad de remapear nada.
+-- '-l 1.0' limita el volumen al 100% para no distorsionar por sobreamplificacion.
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0"),
+  { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
+
 hl.bind("switch:on:Lid Switch", function()
   displays.lid_closed = true
   displays.apply()
