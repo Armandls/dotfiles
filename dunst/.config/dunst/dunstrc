@@ -538,19 +538,22 @@
 # como haria el protocolo OSC del terminal (ese canal propio de Claude Code
 # queda apagado con preferredNotifChannel para no duplicar avisos).
 #
-# El summary es el NOMBRE DEL PROYECTO (el basename del cwd de la sesion) y el
-# tipo de evento viaja en la categoria, asi que se filtra por category: un
+# El summary que manda el hook es el NOMBRE DEL PROYECTO (el basename del cwd de
+# la sesion), pero NO se pinta: el format de abajo solo usa %b. Sigue llegando a
+# dunstctl history, que es donde identifica el aviso.
+#
+# El tipo de evento viaja en la categoria, asi que se filtra por category: un
 # mensaje que contenga "done" no puede caer en la regla de turno terminado.
 #
 # El stack_tag comun hace que se reemplacen entre si en lugar de apilarse.
 # Los timeouts se heredan de la urgencia, como cualquier otra notificacion.
 
 # Regla base: identidad visual para cualquier aviso de Claude Code.
-# %s conserva el nombre del proyecto, que es informacion util.
+# Solo cabecera y mensaje: sin el asterisco del logo y sin el nombre del proyecto.
 [claude]
     appname = "claude"
     new_icon = dialog-information
-    format = "<b>✳  Claude Code</b>\n%s\n<i>%b</i>"
+    format = "<b>Claude Code</b>\n<i>%b</i>"
 
 # Hay un comando esperando aprobacion: requiere accion del usuario.
 [claude-permission]
