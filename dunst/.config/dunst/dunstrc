@@ -228,7 +228,9 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    # Tela-circle-nord-dark primero para mantener la paleta Nord; Adwaita
+    # queda como respaldo porque no incluye los iconos dialog-* ni emblem-*.
+    icon_theme = "Tela-circle-nord-dark, Tela-circle-nord, Adwaita"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
@@ -527,3 +529,53 @@
 
 # Iconos de batería en estado crítico ya entran como urgency_critical
 # y heredan el borde rojo automáticamente.
+
+# === Claude Code ===
+#
+# Las emite ~/.claude/hooks/dunst-notify.py, enganchado a los hooks
+# Notification y Stop en ~/.claude/settings.json, que llama a dunstify
+# directamente. Por eso llegan con appname="claude" y no disfrazadas de kitty
+# como haria el protocolo OSC del terminal (ese canal propio de Claude Code
+# queda apagado con preferredNotifChannel para no duplicar avisos).
+#
+# El summary es el NOMBRE DEL PROYECTO (el basename del cwd de la sesion) y el
+# tipo de evento viaja en la categoria, asi que se filtra por category: un
+# mensaje que contenga "done" no puede caer en la regla de turno terminado.
+#
+# El stack_tag comun hace que se reemplacen entre si en lugar de apilarse.
+# Los timeouts se heredan de la urgencia, como cualquier otra notificacion.
+
+# Regla base: identidad visual para cualquier aviso de Claude Code.
+# %s conserva el nombre del proyecto, que es informacion util.
+[claude]
+    appname = "claude"
+    new_icon = dialog-information
+    format = "<b>✳  Claude Code</b>\n%s\n<i>%b</i>"
+
+# Hay un comando esperando aprobacion: requiere accion del usuario.
+[claude-permission]
+    appname = "claude"
+    category = "claude.permission"
+    frame_color = "#ebcb8b"
+    new_icon = dialog-question
+
+# Cualquier otra peticion de input (sesion en espera, pregunta pendiente).
+[claude-question]
+    appname = "claude"
+    category = "claude.question"
+    frame_color = "#a3be8c"
+    new_icon = dialog-question
+
+# Turno terminado: Claude devuelve el control.
+[claude-done]
+    appname = "claude"
+    category = "claude.done"
+    frame_color = "#88c0d0"
+    new_icon = emblem-default
+
+# Errores de API que cortan el turno (rate limit, overloaded): llegan como
+# critical, asi que heredan el borde rojo y timeout = 0, se quedan fijos.
+[claude-error]
+    appname = "claude"
+    category = "claude.error"
+    new_icon = dialog-error
