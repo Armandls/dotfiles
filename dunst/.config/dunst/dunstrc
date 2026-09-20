@@ -380,7 +380,7 @@
     background = "#2a0f16e6"
     foreground = "#ffffff"
     frame_color = "#ff6b7a"
-    timeout = 0
+    timeout = 10
     override_pause_level = 60
     # Icon for notifications with critical urgency
     default_icon = dialog-warning
