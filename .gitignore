@@ -32,3 +32,6 @@ dconf/
 pulse/
 session/
 opencode/
+
+#Claude
+CLAUDE.md
