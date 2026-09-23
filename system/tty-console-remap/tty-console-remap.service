@@ -1,0 +1,12 @@
+[Unit]
+Description=Remap tty1 console framebuffer segun tapa/monitor externo
+DefaultDependencies=no
+After=systemd-udevd.service
+Before=getty@tty1.service getty.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/tty-console-remap
+
+[Install]
+WantedBy=getty.target
