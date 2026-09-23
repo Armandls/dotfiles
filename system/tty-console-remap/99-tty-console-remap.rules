@@ -1,0 +1,7 @@
+# Re-evalua el mapeo de consola de tty1 si cambia un conector DRM (conectar o
+# desconectar el monitor externo) o el interruptor ACPI de la tapa, mientras
+# aun se esta esperando el login en tty1. Best-effort: el caso garantizado es
+# el remapeo al arrancar (via tty-console-remap.service); esto solo cubre
+# cambios en caliente antes de loguearse.
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/systemctl start tty-console-remap.service"
+SUBSYSTEM=="acpi", ACTION=="change", RUN+="/usr/bin/systemctl start tty-console-remap.service"
