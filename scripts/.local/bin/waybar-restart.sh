@@ -37,6 +37,11 @@ done
 # Margen extra para que el IPC quede estable
 sleep 0.5
 
-setsid waybar >/dev/null 2>&1 < /dev/null &
+# IMPORTANTE: cerrar el fd 9 (el lock) para el proceso de waybar. setsid NO
+# cierra descriptores heredados por si solo: si waybar se queda con el fd 9
+# abierto, el lock queda "atrapado" mientras waybar viva, y CUALQUIER
+# invocacion futura de este script (monitor.added, monitor.removed, o esta
+# misma en el siguiente arranque) falla el flock -n y sale sin hacer nada.
+setsid waybar 9>&- >/dev/null 2>&1 < /dev/null &
 
 exit 0

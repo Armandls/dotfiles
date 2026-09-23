@@ -15,7 +15,7 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 |-----------|---------|
 | Compositor | Hyprland `0.56.0` (Wayland) |
 | Session manager | uwsm `0.26.6` |
-| Display manager | SDDM `0.21` (sugar-candy theme) |
+| Login | None — plain TTY (`agetty`) login, `~/.bash_profile` auto-starts Hyprland via `uwsm` on tty1 |
 | Bar | Waybar `0.15` |
 | Launcher | Rofi `2.0` |
 | Notifications | Dunst `1.13` |
