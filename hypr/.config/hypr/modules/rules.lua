@@ -22,3 +22,10 @@ hl.window_rule({
   match = { class = "kitty", title = "^(popup)$" },
   float = true,
 })
+
+-- Menú de apagado (wlogout): desenfocar el escritorio que queda detrás
+hl.layer_rule({
+  name  = "blur-wlogout",
+  match = { namespace = "logout_dialog" },
+  blur  = true,
+})

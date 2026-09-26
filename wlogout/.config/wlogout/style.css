@@ -1,37 +1,49 @@
+/* wlogout: una fila de 5 botones centrados (márgenes calculados por
+   ~/.local/bin/power-menu.sh según el monitor). Iconos propios en icons/:
+   Snow Storm en reposo y el acento Aurora/Frost de cada acción al enfocar. */
+
 * {
     background-image: none;
     box-shadow: none;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 window {
-    background-color: rgba(46, 52, 64, 0.85); /* Nord Polar Night con transparencia */
+    background-color: rgba(46, 52, 64, 0.55); /* Polar Night; Hyprland le añade blur */
 }
 
 button {
-    color: #d8dee9;                 /* Snow Storm */
-    background-color: #3b4252;      /* Polar Night 1 */
-    border-radius: 14px;
-    border: 2px solid #434c5e;
-    margin: 45px;                   /* márgenes grandes = botones más pequeños */
+    color: #d8dee9;                           /* Snow Storm */
+    background-color: rgba(59, 66, 82, 0.85); /* Polar Night 1 */
+    border: 2px solid rgba(76, 86, 106, 0.6);
+    border-radius: 24px;
+    margin: 0;
+    min-width: 200px;                         /* = size en power-menu.sh */
+    min-height: 200px;
+    padding: 0;                               /* si no, GTK lo suma al tamaño */
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 18%;
+    background-position: center 42%;
+    background-size: 34%;
     transition: all 0.2s ease-in-out;
 }
 
 button:focus,
 button:active,
 button:hover {
-    background-color: #4c566a;      /* Polar Night 3 */
-    border: 2px solid #88c0d0;      /* Frost */
-    color: #eceff4;
+    background-color: #434c5e;                /* Polar Night 2 */
     outline-style: none;
 }
 
-#lock     { background-image: image(url("/usr/share/wlogout/icons/lock.png")); }
-#logout   { background-image: image(url("/usr/share/wlogout/icons/logout.png")); }
-#suspend  { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
-#reboot   { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
-#shutdown { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
+#lock     { background-image: image(url("icons/lock.svg")); }
+#logout   { background-image: image(url("icons/logout.svg")); }
+#suspend  { background-image: image(url("icons/suspend.svg")); }
+#reboot   { background-image: image(url("icons/reboot.svg")); }
+#shutdown { background-image: image(url("icons/shutdown.svg")); }
+
+#lock:focus,     #lock:hover     { color: #88c0d0; border-color: #88c0d0; background-image: image(url("icons/lock-hover.svg")); }
+#logout:focus,   #logout:hover   { color: #a3be8c; border-color: #a3be8c; background-image: image(url("icons/logout-hover.svg")); }
+#suspend:focus,  #suspend:hover  { color: #b48ead; border-color: #b48ead; background-image: image(url("icons/suspend-hover.svg")); }
+#reboot:focus,   #reboot:hover   { color: #ebcb8b; border-color: #ebcb8b; background-image: image(url("icons/reboot-hover.svg")); }
+#shutdown:focus, #shutdown:hover { color: #bf616a; border-color: #bf616a; background-image: image(url("icons/shutdown-hover.svg")); }
