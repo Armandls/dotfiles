@@ -2,6 +2,14 @@
 # ~/.bash_profile
 #
 
+# Scripts propios (paquete stow "scripts" -> ~/.local/bin) al principio del
+# PATH. Va antes del exec de uwsm para que lo herede toda la sesion grafica;
+# el case evita duplicarlo si este fichero se carga mas de una vez.
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Sin display manager: si el login es en la consola física tty1 y todavia no
