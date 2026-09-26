@@ -1,7 +1,7 @@
 {
   "custom/power": {
     "format": "󰐥",
-    "on-click": "wlogout -p layer-shell",
+    "on-click": "~/.local/bin/power-menu.sh",
     "tooltip": false
   }
 }
