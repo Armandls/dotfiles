@@ -1,0 +1,28 @@
+## Temas/config de rofi (*.rasi).
+## Colores ANSI → paleta Nord de kitty. Las reglas posteriores pisan a las anteriores.
+
+syntax rasi "\.rasi$"
+comment "//"
+
+# Números con unidad y palabras clave
+color magenta "\<[0-9]+(\.[0-9]+)?(px|em|ch|mm|%)?"
+color blue "\<(true|false|inherit)\>"
+
+# Puntuación
+color blue "[{}:;,()]"
+
+# Selectores ("element selected {") y propiedades ("text-color:")
+color bold,blue "^[[:blank:]]*[^:{};/[:blank:]][^:{};/]*\{"
+color brightcyan "^[[:blank:]]*[A-Za-z-]+[[:blank:]]*:"
+
+# Colores y variables (@bg, var(bg))
+color yellow "#[[:xdigit:]]{3,8}\>"
+color yellow "\<(rgba?|hsla?)\([^)]*\)"
+color brightyellow "@[A-Za-z0-9-]+|\<var\([^)]*\)"
+
+# Cadenas
+color green ""([^"\\]|\\.)*""
+
+# Comentarios
+color italic,brightblack "(^|[[:blank:]])//.*"
+color italic,brightblack start="/\*" end="\*/"

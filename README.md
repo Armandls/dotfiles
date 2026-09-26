@@ -58,6 +58,7 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 ├── rofi/          → ~/.config/rofi
 ├── dunst/         → ~/.config/dunst
 ├── kitty/         → ~/.config/kitty
+├── nano/          → ~/.config/nano
 ├── gtk-3.0/       → ~/.config/gtk-3.0
 ├── gtk-4.0/       → ~/.config/gtk-4.0
 ├── qt6ct/         → ~/.config/qt6ct
@@ -86,7 +87,7 @@ sudo pacman -S --needed hyprland uwsm waybar rofi dunst hyprpaper hypridle \
 yay -S --needed nordic-theme asusctl supergfxctl bibata-cursor-theme eza
 
 # 4. Deploy with Stow
-stow bash dunst environment.d eza gtk-3.0 gtk-4.0 hypr kitty qt6ct rofi scripts waybar wlogout
+stow bash dunst environment.d eza gtk-3.0 gtk-4.0 hypr kitty nano qt6ct rofi scripts waybar wlogout
 ```
 
 ## License

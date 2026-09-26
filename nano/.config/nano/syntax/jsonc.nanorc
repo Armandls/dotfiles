@@ -1,0 +1,25 @@
+## JSON con comentarios: waybar (*.jsonc) y wlogout/layout.
+## Colores ANSI → paleta Nord de kitty. Las reglas posteriores pisan a las anteriores.
+
+syntax jsonc "\.jsonc$|(^|/)wlogout/layout$"
+comment "//"
+
+# Números y palabras especiales
+color magenta "\<[0-9]+(\.[0-9]+)?([Ee][-+]?[0-9]+)?\>"
+color blue "\<(true|false|null)\>"
+
+# Puntuación
+color blue "[][{},:]"
+
+# Cadenas y claves ("clave":)
+color green ""([^"\\]|\\.)*""
+color brightcyan ""([^"\\]|\\.)*"[[:blank:]]*:"
+
+# Dentro de cadenas: placeholders de waybar ({icon}, {percent}...), colores y escapes
+color brightyellow "\{[A-Za-z_][A-Za-z0-9_:.%-]*\}"
+color yellow ""#[[:xdigit:]]{3,8}""
+color brightyellow "\\(["\\/bfnrt]|u[[:xdigit:]]{4})"
+
+# Comentarios
+color italic,brightblack "(^|[[:blank:]])//.*"
+color italic,brightblack start="/\*" end="\*/"
