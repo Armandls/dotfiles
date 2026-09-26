@@ -5,9 +5,12 @@ ASUS laptop with hybrid graphics. Managed with [GNU Stow](https://www.gnu.org/so
 
 Theme: **Nord** (dark), unified across GTK and Qt.
 
-## Screenshots
+## Demo
 
-![desktop](screenshots/desktop.png)
+![Deploying the Stow packages and browsing the Hyprland, Waybar and Dunst configs](demo/demo.gif)
+
+The demo runs in a throwaway `HOME` under `/tmp`. To record it again:
+`vhs demo/demo.tape` (needs [VHS](https://github.com/charmbracelet/vhs)).
 
 ## Stack
 
