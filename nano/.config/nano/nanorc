@@ -1,0 +1,85 @@
+## nano — config de usuario (se aplica encima de /etc/nanorc)
+## Tema Nord + atajos "modernos" (Ctrl+S, Ctrl+Q, Ctrl+F, Ctrl+Z...).
+## Referencia completa: man nanorc
+
+## === Interfaz ===
+set linenumbers              # números de línea (M-N para alternar)
+set minibar                  # una sola barra abajo: archivo, *, línea:col, %
+set indicator                # barra de scroll a la derecha
+set constantshow             # mostrar siempre la posición del cursor
+set matchbrackets "(<[{)>]}"
+set guidestripe 100          # guía vertical en la columna 100
+set whitespace "»·"          # tabs/espacios visibles con M-P
+
+## === Edición ===
+set autoindent
+set tabsize 4
+set tabstospaces
+set smarthome                # Inicio salta al primer carácter no blanco
+set softwrap                 # ajustar líneas largas visualmente...
+set atblanks                 # ...cortando por palabras
+set afterends                # Ctrl+→ salta al final de palabra
+set trimblanks
+set zap                      # Supr/Retroceso borra la selección
+set mouse                    # clic = cursor; Shift+arrastrar = selección de kitty
+set historylog               # historial de búsquedas (~/.local/share/nano)
+set positionlog              # reabrir en la última posición
+set colonparsing             # nano archivo:42 abre en la línea 42
+set newbuffer                # Ctrl+O abre el archivo en otro buffer (M-, / M-. para cambiar)
+
+## === Colores Nord ===
+set titlecolor bold,#cde,#345
+set minicolor bold,#cde,#345
+set statuscolor bold,#cde,#345
+set promptcolor #eef,#456
+set errorcolor bold,#eef,#b67
+set keycolor bold,#8cd
+set functioncolor #cde
+set numbercolor #456
+set stripecolor ,#344
+set scrollercolor #8ac
+set selectedcolor #eef,#579
+set spotlightcolor #234,#ec8
+
+## === Resaltado de sintaxis ===
+include /usr/share/nano/*.nanorc
+include /usr/share/nano/extra/*.nanorc
+
+## === Atajos modernos ===
+## Bloque oficial de /etc/nanorc (--modernbindings solo existe como flag, no en nanorc).
+bind ^X cut main
+bind ^C copy main
+bind ^V paste all
+bind ^Q exit all
+bind ^S savefile main
+bind ^W writeout main
+bind ^O insert main
+bind ^H help all
+bind ^H exit help
+bind ^F whereis all
+bind ^G findnext all
+bind ^B wherewas all
+bind ^D findprevious all
+bind ^R replace main
+unbind ^U all
+unbind ^N main
+unbind ^Y all
+unbind M-J main
+unbind M-T main
+bind ^A mark main
+bind ^P location main
+bind ^T gotoline main
+bind ^T gotodir browser
+bind ^T cutrestoffile execute
+bind ^L linter execute
+bind ^E execute main
+bind ^K "{mark}{end}{zap}" main
+bind ^U "{mark}{home}{zap}" main
+bind ^Z undo main
+bind ^Y redo main
+
+## Extras
+## {flipnewbuffer}: con newbuffer activo, la salida iría a un buffer nuevo y {undo} no la desharía.
+## >/dev/null 2>&1: wl-copy se queda en segundo plano; sin soltar la tubería nano se cuelga en "Executing...".
+bind M-C "{execute}{flipnewbuffer}| wl-copy >/dev/null 2>&1 {enter}{undo}" main   # copiar selección al portapapeles del sistema
+bind M-/ comment main                              # comentar/descomentar líneas
