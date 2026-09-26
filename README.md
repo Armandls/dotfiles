@@ -7,10 +7,10 @@ Theme: **Nord** (dark), unified across GTK and Qt.
 
 ## Demo
 
-![Deploying the Stow packages and browsing the Hyprland, Waybar and Dunst configs](demo/demo.gif)
+![Hyprland desktop: kitty terminals with nano and git, Rofi, VSCodium, Dolphin, pavucontrol, a Dunst notification and wlogout](demo/desktop.gif)
 
-The demo runs in a throwaway `HOME` under `/tmp`. To record it again:
-`vhs demo/demo.tape` (needs [VHS](https://github.com/charmbracelet/vhs)).
+To record it again: `demo/record-desktop.sh` (needs `wf-recorder` and `ffmpeg`).
+It drives the desktop on its own on workspaces 4 and 5 — don't touch anything while it runs.
 
 ## Stack
 
