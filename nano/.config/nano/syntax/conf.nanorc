@@ -1,0 +1,34 @@
+## Configs genéricas "clave = valor" / "clave valor" / [sección] / bloque { }:
+## dunstrc, kitty.conf, hypr*.conf, environment.d, GTK settings.ini, qt6ct,
+## unidades systemd y reglas udev.
+## Colores ANSI → paleta Nord de kitty. Las reglas posteriores pisan a las anteriores.
+
+syntax conf "\.(conf|ini|service|socket|timer|mount|target|path|rules)$|(^|/)(dunstrc|\.gitconfig)$"
+comment "#"
+
+# Claves: primera palabra de la línea, y cualquier NOMBRE antes de = / == / += (udev)
+color brightcyan "^[[:blank:]]*[A-Za-z_][A-Za-z0-9_.:-]*"
+color brightcyan "\<[A-Za-z_][A-Za-z0-9_]*(\{[^}]*\})?[[:blank:]]*[!:+-]?=="
+color brightcyan "\<[A-Za-z_][A-Za-z0-9_]*(\{[^}]*\})?[[:blank:]]*[!:+-]?="
+
+# Números y palabras clave
+color magenta "\<[0-9]+(\.[0-9]+)?\>"
+color blue "\<(true|false|yes|no|on|off|auto|none|null)\>"
+
+# Operadores y puntuación
+color blue "[!:+-]?==?|[,{}()]"
+
+# Colores (#rrggbb, rgba(...)) y variables ($var, ${var})
+color yellow "#[[:xdigit:]]{3,8}\>"
+color yellow "\<(rgba?|hsla?)\([^)]*\)"
+color brightyellow "\$\{?[A-Za-z_][A-Za-z0-9_]*\}?"
+
+# Cadenas
+color green ""([^"\\]|\\.)*""
+
+# [sección] (ini/dunst/systemd) y "nombre {" (hyprlang)
+color bold,blue "^[[:blank:]]*\[[^]]*\]"
+color bold,blue "^[[:blank:]]*[A-Za-z_][A-Za-z0-9_:.-]*[[:blank:]]*\{"
+
+# Comentarios: solo de línea completa (en kitty "color0 #3b4252" NO es un comentario)
+color italic,brightblack "^[[:blank:]]*[#;].*"

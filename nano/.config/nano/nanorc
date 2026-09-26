@@ -8,7 +8,6 @@ set minibar                  # una sola barra abajo: archivo, *, línea:col, %
 set indicator                # barra de scroll a la derecha
 set constantshow             # mostrar siempre la posición del cursor
 set matchbrackets "(<[{)>]}"
-set guidestripe 100          # guía vertical en la columna 100
 set whitespace "»·"          # tabs/espacios visibles con M-P
 
 ## === Edición ===
@@ -36,7 +35,6 @@ set errorcolor bold,#eef,#b67
 set keycolor bold,#8cd
 set functioncolor #cde
 set numbercolor #456
-set stripecolor ,#344
 set scrollercolor #8ac
 set selectedcolor #eef,#579
 set spotlightcolor #234,#ec8
@@ -44,6 +42,7 @@ set spotlightcolor #234,#ec8
 ## === Resaltado de sintaxis ===
 include /usr/share/nano/*.nanorc
 include /usr/share/nano/extra/*.nanorc
+include ~/.config/nano/syntax/*.nanorc   # propias: jsonc (waybar), rasi (rofi), conf (dunst/kitty/hypr/ini...)
 
 ## === Atajos modernos ===
 ## Bloque oficial de /etc/nanorc (--modernbindings solo existe como flag, no en nanorc).
