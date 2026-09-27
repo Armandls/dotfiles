@@ -1,11 +1,5 @@
 # Waybar
 
-### Full Dekstop
-<img width="2880" height="1800" alt="full_desktop_waybar" src="https://github.com/user-attachments/assets/c9ee976f-83c0-4dfd-95c5-a5d0de4bc33c" />
-
-### Showcase
-https://github.com/user-attachments/assets/150b7b3d-9b5d-4a0f-a7a4-47977d99e9e5
-
 ---
 
 ### Structure
