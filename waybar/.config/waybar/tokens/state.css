@@ -4,34 +4,33 @@
 
 #battery.charging {
   color: @success;
+  background-color: alpha(@success, 0.18);
   border-color: alpha(@success, 0.45);
 }
 
-#cpu.warning,
-#memory.warning,
-#temperature.warning,
 #battery.warning:not(.charging) {
   color: @warning;
+  background-color: alpha(@warning, 0.18);
+  border-color: alpha(@warning, 0.45);
 }
 
-#battery.warning:not(.charging),
-#memory.warning,
+#battery.critical:not(.charging) {
+  color: @danger;
+  background-color: alpha(@danger, 0.22);
+  border-color: alpha(@danger, 0.55);
+}
+
 #cpu.warning,
+#memory.warning,
 #temperature.warning {
+  color: @warning;
   border-color: alpha(@warning, 0.45);
 }
 
 #cpu.critical,
 #memory.critical,
-#temperature.critical,
-#battery.critical:not(.charging) {
-  color: @danger;
-}
-
-#battery.critical:not(.charging),
-#memory.critical,
-#cpu.critical,
 #temperature.critical {
+  color: @danger;
   border-color: alpha(@danger, 0.55);
 }
 
